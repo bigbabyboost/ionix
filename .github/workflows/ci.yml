@@ -25,8 +25,6 @@ jobs:
 
       - uses: DeterminateSystems/magic-nix-cache-action@main
 
-      - uses: DeterminateSystems/flake-checker-action@v10
-
       - uses: cachix/cachix-action@v16
         with:
           name: xaolan
@@ -80,6 +78,8 @@ jobs:
         run: nix build ".#nixosConfigurations.${HOSTNAME}.config.system.build.toplevel"
         env:
           HOSTNAME: ionia # replace with your actual hostname key
+      - name: Info
+        run: nix path-info -Sh ./result
 
       # Optional: Build dev shell to ensure it works
       - name: Build devShell
