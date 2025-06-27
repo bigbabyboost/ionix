@@ -1,6 +1,4 @@
-{
-  ...
-}: let
+{...}: let
   # Common extensions for both browsers
   commonExtensions = [
     "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin

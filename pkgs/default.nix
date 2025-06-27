@@ -6,7 +6,7 @@
       # instant repl with automatic flake loading
       repl = pkgs.callPackage ./repl {};
 
-#      firefox = pkgs.callPackage ./ff {};      
+      #      firefox = pkgs.callPackage ./ff {};
 
       bibata-hyprcursor = pkgs.callPackage ./bibata-hyprcursor {};
 

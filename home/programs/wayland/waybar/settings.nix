@@ -7,12 +7,12 @@
   programs.waybar = {
     settings = [
       {
-		layer =  "top";
-		spacing = 4;
-		exclusive = true;
-		margin-top = 5;
-		margin-left = 7;
-		margin-right = 7;
+        layer = "top";
+        spacing = 4;
+        exclusive = true;
+        margin-top = 5;
+        margin-left = 7;
+        margin-right = 7;
         modules-left = [
           "image"
           "group/left"
@@ -47,17 +47,17 @@
           };
         };
 
-		"group/left" = {
-	  	  orientation = "inherit";
-	  	  drawer = {
-	        transition-duration = 300;
-	        transition-left-to-right = true;
-	  	  };
-	  	  modules = [
-	  	    "niri/workspaces" 
-	  	    "idle_inhibitor"
-	  	  ]; 
-		};
+        "group/left" = {
+          orientation = "inherit";
+          drawer = {
+            transition-duration = 300;
+            transition-left-to-right = true;
+          };
+          modules = [
+            "niri/workspaces"
+            "idle_inhibitor"
+          ];
+        };
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
@@ -82,15 +82,15 @@
           };
         };
 
-		"group/info" = {
-		  orientation = "inherit";
-		  drawer = {
-		    transition-duration = 300;
-		    transition-right-to-left = true;
-		  };
-		  modules = ["tray" "custom/notifications"];
-		};
-		
+        "group/info" = {
+          orientation = "inherit";
+          drawer = {
+            transition-duration = 300;
+            transition-right-to-left = true;
+          };
+          modules = ["tray" "custom/notifications"];
+        };
+
         network = {
           format-disconnected = "󰤮";
           format-ethernet = "󰈀";
@@ -186,17 +186,17 @@
         mpris = {
           player-icons = {
             firefox = "";
-          	spotify = "";
+            spotify = "";
           };
           status-icons = {
-          	playing = "▶";
+            playing = "▶";
             paused = "⏸";
           };
-		  format-playing = "<span font-family=\"Font Awesome 6 Free\">{player_icon} </span> {artist} - {title}";
-		  format-paused = "<span font-family=\"Font Awesome 6 Free\">{status_icon} </span> {artist} - {title}";
-		  format-stopped = "";
-		  tooltip-format = "{dynamic}";
-		  dynamic-len = 50;          
+          format-playing = "<span font-family=\"Font Awesome 6 Free\">{player_icon} </span> {artist} - {title}";
+          format-paused = "<span font-family=\"Font Awesome 6 Free\">{status_icon} </span> {artist} - {title}";
+          format-stopped = "";
+          tooltip-format = "{dynamic}";
+          dynamic-len = 50;
         };
 
         "group/powers" = {
@@ -263,150 +263,150 @@
     ];
 
     style = ''
-* {
-    font-family: "Adwaita Sans", "Font Awesome 6 Free", sans-serif;
-    font-size: 9pt;
-    min-height: 27px;
-}
+      * {
+          font-family: "Adwaita Sans", "Font Awesome 6 Free", sans-serif;
+          font-size: 9pt;
+          min-height: 27px;
+      }
 
-window#waybar {
-	all:unset;
-	background-color: rgba(0, 0, 0, 0);	
-	border: none;
-	border-radius: 18;
-	transition-property: background-color;
-	transition-duration: 0.5s;
-}
+      window#waybar {
+      	all:unset;
+      	background-color: rgba(0, 0, 0, 0);
+      	border: none;
+      	border-radius: 18;
+      	transition-property: background-color;
+      	transition-duration: 0.5s;
+      }
 
-button {
-	/* Use box-shadow instead of border so the text isn't offset */
-	box-shadow: inset 0 0 transparent;
-	color: #DCD7BA;
-	border: none;
-	border-radius: 0;
-}
+      button {
+      	/* Use box-shadow instead of border so the text isn't offset */
+      	box-shadow: inset 0 0 transparent;
+      	color: #DCD7BA;
+      	border: none;
+      	border-radius: 0;
+      }
 
-/* Idle Inhibitor */
-#idle_inhibitor {
-  background: #1f1f28;
-  color: #ffffff;
-  padding: 0 0.75em;
-  border-radius: 18px;
-}
+      /* Idle Inhibitor */
+      #idle_inhibitor {
+        background: #1f1f28;
+        color: #ffffff;
+        padding: 0 0.75em;
+        border-radius: 18px;
+      }
 
-#idle_inhibitor.deactivated {
-  color: #ffffff;
-  background: #1f1f28;
-}
+      #idle_inhibitor.deactivated {
+        color: #ffffff;
+        background: #1f1f28;
+      }
 
-#window {
-  background: #1f1f29;
-  margin: 0rem 0.25rem;
-  border-radius: 8px;
-}      
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-	background: transparent;
-}
+      #window {
+        background: #1f1f29;
+        margin: 0rem 0.25rem;
+        border-radius: 8px;
+      }
+      /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+      button:hover {
+      	background: transparent;
+      }
 
-tooltip {
-	background-color: #1F1F28;
-	border-radius: 8px;
-}
+      tooltip {
+      	background-color: #1F1F28;
+      	border-radius: 8px;
+      }
 
-#workspaces,
-#clock,
-#mpris,
-.modules-left {
-	background-color: #1F1F28;
-	border-radius: 8pt;
-	color: #DCD7BA;	
-}
+      #workspaces,
+      #clock,
+      #mpris,
+      .modules-left {
+      	background-color: #1F1F28;
+      	border-radius: 8pt;
+      	color: #DCD7BA;
+      }
 
-.modules-left {
-	padding: 0 0.5em;
-}
-.modules-right {
-	background-color: #1F1F28;
-	border-radius: 8pt;
-	color: #DCD7BA;	
-}
+      .modules-left {
+      	padding: 0 0.5em;
+      }
+      .modules-right {
+      	background-color: #1F1F28;
+      	border-radius: 8pt;
+      	color: #DCD7BA;
+      }
 
-.modules-right {
-	padding: 0 0.5em;
-}
+      .modules-right {
+      	padding: 0 0.5em;
+      }
 
-#workspaces {
-	font-weight: bold;
-	font-size: 8pt;
-}
+      #workspaces {
+      	font-weight: bold;
+      	font-size: 8pt;
+      }
 
-#workspaces button {
-	padding: 0 0.25em;
-	margin: 0.5 0em
-}
+      #workspaces button {
+      	padding: 0 0.25em;
+      	margin: 0.5 0em
+      }
 
-#workspaces button.visible {
-	color: #DCD7BA;
-}
+      #workspaces button.visible {
+      	color: #DCD7BA;
+      }
 
-#workspaces button.empty {
-	color: #727169;
-}
+      #workspaces button.empty {
+      	color: #727169;
+      }
 
-#workspaces button.active {
-	background: transparent;
-	color: #DCD7BA;
-}
+      #workspaces button.active {
+      	background: transparent;
+      	color: #DCD7BA;
+      }
 
-#clock {
-	padding: 0 0.5em;
-	font-weight: bold;
-	font-size: 8pt;
-	color: #DCD7BA;
-}
+      #clock {
+      	padding: 0 0.5em;
+      	font-weight: bold;
+      	font-size: 8pt;
+      	color: #DCD7BA;
+      }
 
-#mpris {
-	padding: 0 1em;
-	font-weight: bold;
-	font-size: 8pt;
-	color: #DCD7BA;	
-}
+      #mpris {
+      	padding: 0 1em;
+      	font-weight: bold;
+      	font-size: 8pt;
+      	color: #DCD7BA;
+      }
 
-/* #battery.charging { */
-/* 	color: green; */
-/* } */
+      /* #battery.charging { */
+      /* 	color: green; */
+      /* } */
 
-#tray {
-	font-size: 8pt;
-	padding: 0 0.5em;
-}
+      #tray {
+      	font-size: 8pt;
+      	padding: 0 0.5em;
+      }
 
-#custom-notifications {
-	font-size: 8pt;
-	padding: 0 0.5em;
-}
+      #custom-notifications {
+      	font-size: 8pt;
+      	padding: 0 0.5em;
+      }
 
-#battery,
-#network {
-	font-size: 8pt;
-	padding: 0 0.10em;
-	margin: 0 0.5em;
-	background: #1F1F28;	
-} 
-#wireplumber {
-	font-size: 8pt;
-	padding: 0 0em;
-	background: #1F1F28;
-}
+      #battery,
+      #network {
+      	font-size: 8pt;
+      	padding: 0 0.10em;
+      	margin: 0 0.5em;
+      	background: #1F1F28;
+      }
+      #wireplumber {
+      	font-size: 8pt;
+      	padding: 0 0em;
+      	background: #1F1F28;
+      }
 
-#battery.warning {
-	color: yellow;
-}
+      #battery.warning {
+      	color: yellow;
+      }
 
-#battery.critical {
-	color: red;
-} 
+      #battery.critical {
+      	color: red;
+      }
     '';
   };
 }

@@ -4,29 +4,23 @@
   pkgs,
   userSettings,
   ...
-}:
-
-let
+}: let
   yazi-plugins = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "plugins";
     rev = "main";
     hash = "sha256-mzW/ut/LTEriZiWF8YMRXG9hZ70OOC0irl5xObTNO40=";
   };
-
-in
-{
+in {
   imports = [
- #   ./theme/filetype.nix
- #   ./theme/icons.nix
- #   ./theme/manager.nix
- #   ./theme/status.nix
+    #   ./theme/filetype.nix
+    #   ./theme/icons.nix
+    #   ./theme/manager.nix
+    #   ./theme/status.nix
   ];
 
-
-  home.packages = [ pkgs.exiftool ];
+  home.packages = [pkgs.exiftool];
   programs.yazi = {
-
     enable = true;
     flavors = pkgs.yazi-flavors;
     theme.flavor = {
@@ -36,14 +30,13 @@ in
 
     enableZshIntegration = true;
     plugins = {
-
       full-border = pkgs.yaziPlugins.full-border;
       git = pkgs.yaziPlugins.git;
       smart-filter = pkgs.yaziPlugins.smart-filter;
       diff = pkgs.yaziPlugins.diff;
       chmod = pkgs.yaziPlugins.chmod;
       mount = pkgs.yaziPlugins.mount;
-      
+
       glow = pkgs.yaziPlugins.glow;
 
       hexyl = pkgs.fetchFromGitHub {
@@ -127,7 +120,6 @@ in
           }
         ];
         open = [
-
           {
             run = "xdg-open \"$1\"";
             desc = "Open";
@@ -503,7 +495,6 @@ in
           50
           3
         ];
-
       };
 
       confirm = {
@@ -548,7 +539,6 @@ in
           50
           15
         ];
-
       };
 
       pick = {
@@ -573,6 +563,5 @@ in
         enabled = false;
       };
     };
-
   };
 }

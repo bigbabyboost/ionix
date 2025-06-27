@@ -2,20 +2,18 @@
   config,
   pkgs,
   ...
-}:
-let
-      ff-ultima = pkgs.fetchFromGitHub {
-  	    owner = "soulhotel";
-  	    repo = "FF-ULTIMA";
-  	    rev = "5a81c9e";
-  	    sha256 = "sha256-XpPE92p6isit2ye1Ct2W9U/hwk4kym8Jo9E0b8P6Z84=";
-  	  };
-in
-{
+}: let
+  ff-ultima = pkgs.fetchFromGitHub {
+    owner = "soulhotel";
+    repo = "FF-ULTIMA";
+    rev = "5a81c9e";
+    sha256 = "sha256-XpPE92p6isit2ye1Ct2W9U/hwk4kym8Jo9E0b8P6Z84=";
+  };
+in {
   programs = {
     firefox = {
-  	  enable = true;
-   	  profiles.xaolan ={
+      enable = true;
+      profiles.xaolan = {
         search = {
           force = true;
           order = ["g"];
@@ -141,12 +139,12 @@ in
         };
         userChrome = builtins.readFile (ff-ultima + "/userChrome.css");
         userContent = builtins.readFile (ff-ultima + "/userContent.css");
-  	  };
-  	};
+      };
+    };
   };
 
   home.file.".mozilla/firefox/${config.programs.firefox.profiles.xaolan.path}/chrome/theme" = {
-  	source = "${ff-ultima}/theme";
+    source = "${ff-ultima}/theme";
     recursive = true;
   };
 }

@@ -1,4 +1,8 @@
-{pkgs, config, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   wallpaper = config.theme.wallpaper;
 in {
   # Enable KDE

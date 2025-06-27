@@ -2,36 +2,40 @@
   description = "fufexan's NixOS and Home-Manager flake";
 
   outputs = inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; }
-  {
-    systems = [ "x86_64-linux" ];
+    inputs.flake-parts.lib.mkFlake {inherit inputs;}
+    {
+      systems = ["x86_64-linux"];
 
-    imports = [
-      ./hosts
-      ./lib
-      ./modules
-      ./pkgs
-      ./pre-commit-hooks.nix
-    ];
+      imports = [
+        ./hosts
+        ./lib
+        ./modules
+        ./pkgs
+        ./pre-commit-hooks.nix
+      ];
 
-    perSystem = { config, pkgs, ... }: {
-      devShells.default = pkgs.mkShell {
-        name = "dots";
-        packages = [
-          pkgs.alejandra
-          pkgs.git
-          pkgs.nodePackages.prettier
-          config.packages.repl
-        ];
-        DIRENV_LOG_FORMAT = "";
-        shellHook = ''
-          ${config.pre-commit.installationScript}
-        '';
+      perSystem = {
+        config,
+        pkgs,
+        ...
+      }: {
+        devShells.default = pkgs.mkShell {
+          name = "dots";
+          packages = [
+            pkgs.alejandra
+            pkgs.git
+            pkgs.nodePackages.prettier
+            config.packages.repl
+          ];
+          DIRENV_LOG_FORMAT = "";
+          shellHook = ''
+            ${config.pre-commit.installationScript}
+          '';
+        };
+
+        formatter = pkgs.alejandra;
       };
-
-      formatter = pkgs.alejandra;
     };
-  };
 
   inputs = {
     systems.url = "github:nix-systems/default-linux";
@@ -135,8 +139,8 @@
     };
 
     nixvim = {
-        url = "github:nix-community/nixvim";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nvix.url = "github:niksingh710/nvix";

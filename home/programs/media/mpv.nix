@@ -13,7 +13,7 @@
       youtube-upnext
       # autosubsync-mpv
       autoload
-      smart-copy-paste-2      
+      smart-copy-paste-2
     ];
     config = {
       hwdec = "auto-safe";
