@@ -24,7 +24,7 @@
     ../../services/system/polkit-agent.nix
     ../../services/system/power-monitor.nix
     ../../services/system/syncthing.nix
-    # ../../services/system/tailray.nix
+    ../../services/system/tailray.nix
     ../../services/system/theme.nix
     ../../services/system/udiskie.nix
 
