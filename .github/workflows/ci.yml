@@ -25,9 +25,10 @@ jobs:
           github-token: ${{ secrets.GH_TOKEN }}
           extra-conf: |
             experimental-features = nix-command flakes pipe-operators
-            lazy-tree = true
+            lazy-trees = true
             auto-optimise-store = true
-            acces-tokens = githubcom=${{ secrets.GH_TOKEN }}
+            acces-tokens = github.com=${{ secrets.GH_TOKEN }}
+      - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: cachix/cachix-action@master
         with:
           name: xaolan
