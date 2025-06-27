@@ -18,22 +18,21 @@ jobs:
       - uses: wimpysworld/nothing-but-nix@main
         with:
           hatchet-protocol: "rampage"
+          witness-carnage: true
 
       - uses: DeterminateSystems/nix-installer-action@main
         with:
           github-token: ${{ secrets.GH_TOKEN }}
           extra_nix_config: |
             experimental-features = nix-command flakes pipe-operators
+            lazy-tree = true
             auto-optimise-store = true
             acces-tokens = githubcom=${{ secrets.GH_TOKEN }}
-
-      - uses: DeterminateSystems/magic-nix-cache-action@main
 
       - uses: cachix/cachix-action@v16
         with:
           name: xaolan
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-          extraPullNames: pre-commit-hooks,nix-community
           skipPush: ${{ github.ref != 'refs/heads/main' || github.event_name != 'push' }}
 
       # Monthly flake.lock update
