@@ -20,15 +20,13 @@ jobs:
           root-safe-haven: "55296"
           mnt-safe-haven: "2048"
           witness-carnage: true
-      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/determinate-nix-action@main
         with:
           github-token: ${{ secrets.GH_TOKEN }}
           extra-conf: |
-            experimental-features = nix-command flakes pipe-operators
             lazy-trees = true
-            auto-optimise-store = true
-            acces-tokens = github.com=${{ secrets.GH_TOKEN }}
       - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: DeterminateSystems/flake-checker-action@main
       - uses: cachix/cachix-action@master
         with:
           name: xaolan
