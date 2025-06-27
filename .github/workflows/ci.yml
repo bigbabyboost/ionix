@@ -82,6 +82,9 @@ jobs:
           HOSTNAME: ionia # replace with your actual hostname key
       - name: Info
         run: nix path-info -Sh ./result
+      - name: deploy
+        run: |
+          cachix push xaolan ./result
 
       # Optional: Build dev shell to ensure it works
       - name: Build devShell
