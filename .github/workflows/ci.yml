@@ -16,12 +16,16 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: wimpysworld/nothing-but-nix@main
+        with:
+          hatchet-protocol: "rampage"
 
       - uses: DeterminateSystems/nix-installer-action@main
         with:
           github-token: ${{ secrets.GH_TOKEN }}
-          extra-conf: |
+          extra_nix_config: |
             experimental-features = nix-command flakes pipe-operators
+            auto-optimise-store = true
+            acces-tokens = githubcom=${{ secrets.GH_TOKEN }}
 
       - uses: DeterminateSystems/magic-nix-cache-action@main
 
