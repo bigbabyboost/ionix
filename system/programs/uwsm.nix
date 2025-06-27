@@ -1,4 +1,8 @@
-{ lib, pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.uwsm = {
     enable = true;
     waylandCompositors.niri = {
@@ -6,5 +10,5 @@
       prettyName = lib.mkForce "Niri";
       comment = lib.mkForce "Niri managed by UWSM";
     };
-  };	
+  };
 }
