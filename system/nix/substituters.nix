@@ -11,6 +11,7 @@
       "https://niri.cachix.org"
       "https://nix-community.cachix.org"
       "https://nix-gaming.cachix.org"
+      "https://xaolan.cachix.org"
       "https://yazi.cachix.org"
     ];
 
@@ -24,6 +25,7 @@
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+      "xaolan.cachix.org-1:GvQDGf7m6/xT7YM30jgKHmo71A1rHAjUOQxlfhBStg4="
       "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
     ];
   };

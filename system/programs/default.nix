@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ./fonts.nix
     ./home-manager.nix
@@ -14,4 +14,8 @@
 
     seahorse.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    cachix
+  ];
 }

@@ -17,8 +17,8 @@ jobs:
       - uses: wimpysworld/nothing-but-nix@main
         with:
           hatchet-protocol: "rampage"
-          root-safe-haven: "55296"
-          mnt-safe-haven: "2048"
+          root-safe-haven: "34816"
+          mnt-safe-haven: "20480"
           witness-carnage: true
       - uses: DeterminateSystems/nix-installer-action@main
         with:
