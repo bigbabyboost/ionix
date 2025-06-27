@@ -7,8 +7,8 @@
   isGnomeEnabled = config.services.desktopManager.gnome.enable;
 in {
   # GDM
-  services.displayManager.gdm.enable = lib.mkDefault isGnomeEnabled;
-  services.desktopManager.gnome.enable = lib.mkDefault true;
+  services.displayManager.gdm.enable = lib.mkDefault true;
+  services.desktopManager.gnome.enable = lib.mkDefault false;
 
   # Exclude packages from the gnome.
   environment.gnome.excludePackages = with pkgs; [

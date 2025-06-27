@@ -10,7 +10,7 @@
     # ./hyprland
     ./niri
     ./hyprlock.nix
-    ./swayosd.nix
+    # ./swayosd.nix
     # ./waybar
     ./wlogout.nix
   ];

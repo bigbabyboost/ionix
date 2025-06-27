@@ -13,7 +13,7 @@
     ./gtk.nix
     ./office
     ./qt.nix
-    ./ulauncher
+    # ./ulauncher
   ];
 
   home.packages = with pkgs; [
@@ -24,7 +24,6 @@
 
     gnome-calculator
     gnome-control-center
-    nautilus
 
     overskride
     resources

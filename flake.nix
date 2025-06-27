@@ -53,10 +53,10 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    ags = {
-      url = "github:Aylur/ags/v1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #    ags = {
+    #      url = "github:Aylur/ags/v1";
+    #      inputs.nixpkgs.follows = "nixpkgs";
+    #    };
 
     anyrun.url = "github:fufexan/anyrun/launch-prefix";
 
@@ -67,7 +67,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helix.url = "github:helix-editor/helix";
+    #    helix.url = "github:helix-editor/helix";
 
     hm = {
       url = "github:nix-community/home-manager";
@@ -138,18 +138,13 @@
       };
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #    nvix.url = "github:niksingh710/nvix";
 
-    nvix.url = "github:niksingh710/nvix";
-
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "hm";
-    };
+    #    plasma-manager = {
+    #      url = "github:nix-community/plasma-manager";
+    #      inputs.nixpkgs.follows = "nixpkgs";
+    #      inputs.home-manager.follows = "hm";
+    #    };
 
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
@@ -169,14 +164,6 @@
     tailray = {
       url = "github:NotAShelf/tailray";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    uwu-colors = {
-      url = "github:q60/uwu_colors";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        utils.follows = "flake-utils";
-      };
     };
 
     zen-browser = {

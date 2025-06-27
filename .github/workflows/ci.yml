@@ -23,7 +23,7 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@main
         with:
           github-token: ${{ secrets.GH_TOKEN }}
-          extra_nix_config: |
+          extra-conf: |
             experimental-features = nix-command flakes pipe-operators
             lazy-tree = true
             auto-optimise-store = true
