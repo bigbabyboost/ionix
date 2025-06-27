@@ -77,7 +77,7 @@ jobs:
       # Optional: Build something from your flake like a devShell or system config
       - name: Build NixOS configuration
         #run: nix build -L ".#nixosConfigurations.${HOSTNAME}.config.system.build.toplevel" --verbose
-        run: nix run nixpkgs#nixos-rebuild --build --flake .#ionia --verbose
+        run: nix run nixpkgs#nixos-rebuild -- build --flake .#ionia --verbose
         env:
           HOSTNAME: ionia # replace with your actual hostname key
       - name: Info
