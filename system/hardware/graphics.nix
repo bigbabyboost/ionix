@@ -10,10 +10,6 @@
       intel-media-sdk
       intel-compute-runtime-legacy1
     ];
-    extraPackages32 = with pkgs.pkgsi686Linux; [
-      intel-media-driver
-      libva
-    ];
   };
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD";
