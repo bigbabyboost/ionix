@@ -17,8 +17,6 @@
   ];
 
   home.packages = with pkgs; [
-    inputs.nvix.packages.${pkgs.system}.core
-
     halloy
     tdesktop
 
