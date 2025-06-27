@@ -10,16 +10,16 @@ on:
     - cron: "0 0 25 * *" # monthly on the 25th
 
 jobs:
-  build:
+  nixos:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: wimpysworld/nothing-but-nix@main
         with:
           hatchet-protocol: "rampage"
+          root-safe-haven: "2048"
+          mnt-safe-haven: "1024"
           witness-carnage: true
-
       - uses: DeterminateSystems/nix-installer-action@main
         with:
           github-token: ${{ secrets.GH_TOKEN }}
@@ -28,13 +28,11 @@ jobs:
             lazy-tree = true
             auto-optimise-store = true
             acces-tokens = githubcom=${{ secrets.GH_TOKEN }}
-
-      - uses: cachix/cachix-action@v16
+      - uses: cachix/cachix-action@master
         with:
           name: xaolan
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
           skipPush: ${{ github.ref != 'refs/heads/main' || github.event_name != 'push' }}
-
       # Monthly flake.lock update
       - name: Update flake.lock (Monthly)
         if: ${{ github.event_name == 'schedule' && github.event.schedule == '0 0 25 * *' }}
@@ -78,7 +76,8 @@ jobs:
 
       # Optional: Build something from your flake like a devShell or system config
       - name: Build NixOS configuration
-        run: nix build ".#nixosConfigurations.${HOSTNAME}.config.system.build.toplevel"
+        #run: nix build -L ".#nixosConfigurations.${HOSTNAME}.config.system.build.toplevel" --verbose
+        run: nix run nixpkgs#nixos-rebuild --build --flake .#ionia --verbose
         env:
           HOSTNAME: ionia # replace with your actual hostname key
       - name: Info
