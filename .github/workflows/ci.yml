@@ -17,8 +17,8 @@ jobs:
       - uses: wimpysworld/nothing-but-nix@main
         with:
           hatchet-protocol: "rampage"
-          root-safe-haven: "34816"
-          mnt-safe-haven: "20480"
+          root-safe-haven: "55296"
+          mnt-safe-haven: "2048"
           witness-carnage: true
       - uses: DeterminateSystems/nix-installer-action@main
         with:
@@ -32,7 +32,7 @@ jobs:
         with:
           name: xaolan
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-          skipPush: ${{ github.ref != 'refs/heads/main' || github.event_name != 'push' }}
+          skipPush: ${{ github.ref != 'refs/heads/master' || github.event_name != 'push' }}
       # Monthly flake.lock update
       - name: Update flake.lock (Monthly)
         if: ${{ github.event_name == 'schedule' && github.event.schedule == '0 0 25 * *' }}
@@ -82,10 +82,6 @@ jobs:
           HOSTNAME: ionia # replace with your actual hostname key
       - name: Info
         run: nix path-info -Sh ./result
-      - name: deploy
-        run: |
-          cachix push xaolan ./result
-
       # Optional: Build dev shell to ensure it works
       - name: Build devShell
         run: nix develop --command true
