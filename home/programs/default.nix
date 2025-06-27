@@ -13,7 +13,6 @@
     ./gtk.nix
     ./office
     ./qt.nix
-    # ./ulauncher
   ];
 
   home.packages = with pkgs; [
