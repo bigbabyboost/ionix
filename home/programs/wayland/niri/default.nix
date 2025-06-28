@@ -15,6 +15,7 @@
       seatd
       jaq
       xwayland-satellite
+      brightnessctl
     ];
   };
 }

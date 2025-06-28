@@ -6,19 +6,28 @@
   programs.niri.settings.binds = with config.lib.niri.actions; let
     playerctl = spawn "${pkgs.playerctl}/bin/playerctl";
   in {
-    "XF86AudioMute".action = spawn "swayosd-client" "--output-volume=mute-toggle";
-    "XF86AudioMicMute".action = spawn "swayosd-client" "--input-volume=mute-toggle";
+    "XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
+    "XF86AudioMicMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+
+    # "XF86AudioMute".action = spawn "swayosd-client" "--output-volume=mute-toggle";
+    # "XF86AudioMicMute".action = spawn "swayosd-client" "--input-volume=mute-toggle";
 
     "XF86AudioPlay".action = playerctl "play-pause";
     "XF86AudioStop".action = playerctl "pause";
     "XF86AudioPrev".action = playerctl "previous";
     "XF86AudioNext".action = playerctl "next";
 
-    "XF86AudioRaiseVolume".action = spawn "swayosd-client" "--output-volume=raise";
-    "XF86AudioLowerVolume".action = spawn "swayosd-client" "--output-volume=lower";
+    "XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+";
+    "XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-";
 
-    "XF86MonBrightnessUp".action = spawn "swayosd-client" "--brightness=raise";
-    "XF86MonBrightnessDown".action = spawn "swayosd-client" "--brightness=lower";
+    # "XF86AudioRaiseVolume".action = spawn "swayosd-client" "--output-volume=raise";
+    # "XF86AudioLowerVolume".action = spawn "swayosd-client" "--output-volume=lower";
+
+    "XF86MonBrightnessUp".action = spawn "brightnessctl" "s" "5%+";
+    "XF86MonBrightnessDown".action = spawn "brightnessctl" "s" "5%-";
+
+    # "XF86MonBrightnessUp".action = spawn "swayosd-client" "--brightness=raise";
+    # "XF86MonBrightnessDown".action = spawn "swayosd-client" "--brightness=lower";
 
     "Print".action = screenshot;
     "Mod+Print".action = screenshot-window;
