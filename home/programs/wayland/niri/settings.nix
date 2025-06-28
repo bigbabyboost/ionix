@@ -87,7 +87,7 @@ in {
 
         center-focused-column = "on-overflow";
 
-        gaps = 5;
+        gaps = 12;
         struts = {
           left = 0;
           right = 0;
