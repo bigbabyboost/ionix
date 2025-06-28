@@ -9,6 +9,10 @@ on:
     - cron: "0 0 * * 0" # weekly on Sunday
     - cron: "0 0 25 * *" # monthly on the 25th
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   nixos:
     runs-on: ubuntu-latest
@@ -25,7 +29,6 @@ jobs:
           github-token: ${{ secrets.GH_TOKEN }}
           extra-conf: |
             lazy-trees = true
-      - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
       - uses: cachix/cachix-action@master
         with:
@@ -38,7 +41,6 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@v25
         with:
           token: ${{ secrets.GH_TOKEN }}
-          inputs: nixpkgs system disko niri nix-index-db nix-gaming zen-browser flake-parts hm hyprland hyprland-contrib hyprland-plugins hyprlock hyprpaper nix-yazi-flavors nvix plasma-manager yazi quickshell tailray hypridle pre-commit-hooks
           branch: monthly-lock
           git-author-name: "bigbabyboost"
           git-author-email: "ah0199004@gmail.com"
@@ -57,7 +59,6 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@v25
         with:
           token: ${{ secrets.GH_TOKEN }}
-          inputs: nixpkgs system disko niri nix-index-db nix-gaming zen-browser flake-parts hm hyprland hyprland-contrib hyprland-plugins hyprlock hyprpaper nix-yazi-flavors nvix plasma-manager yazi quickshell tailray hypridle pre-commit-hooks
           branch: weekly-lock
           git-author-name: "bigbabyboost"
           git-author-email: "ah0199004@gmail.com"
