@@ -4,7 +4,7 @@
   ...
 }: let
   cfg = config.programs.git;
-  key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOq9Gew1rgfdIyuriJ/Ne0B8FE1s8O/U2ajErVQLUDu9 xaolan@ionia";
+  key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFCf024JpKhWzYfBi64sxV2E3PDrBDjkqKn2FLFGxBZO ah0199004@gmail.com";
 in {
   home.packages = [pkgs.gh];
 
@@ -97,6 +97,7 @@ in {
       gpg.ssh.allowedSignersFile = config.home.homeDirectory + "/" + config.xdg.configFile."git/allowed_signers".target;
 
       pull.rebase = true;
+      credential.helper = "store";
     };
 
     userEmail = "ah0199004@gmail.com";
