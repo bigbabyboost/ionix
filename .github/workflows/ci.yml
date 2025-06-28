@@ -14,27 +14,41 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  nixos:
+  build:
+    name: ❄
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        host:
+          - ionia
+        config-type:
+          - type: "ionia"
+            path: ".#nixosConfigurations.{host}.config.system.build.toplevel"
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: wimpysworld/nothing-but-nix@main
         with:
           hatchet-protocol: "rampage"
           root-safe-haven: "55296"
           mnt-safe-haven: "2048"
           witness-carnage: false
+
       - uses: DeterminateSystems/determinate-nix-action@main
         with:
           github-token: ${{ secrets.GH_TOKEN }}
           extra-conf: |
             lazy-trees = true
+
       - uses: DeterminateSystems/flake-checker-action@main
+
       - uses: cachix/cachix-action@master
         with:
           name: xaolan
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
           skipPush: ${{ github.ref != 'refs/heads/master' || github.event_name != 'push' }}
+
       # Monthly flake.lock update
       - name: Update flake.lock (Monthly)
         if: ${{ github.event_name == 'schedule' && github.event.schedule == '0 0 25 * *' }}
@@ -76,12 +90,38 @@ jobs:
 
       # Optional: Build something from your flake like a devShell or system config
       - name: Build NixOS configuration
-        #run: nix build -L ".#nixosConfigurations.${HOSTNAME}.config.system.build.toplevel" --verbose
-        run: nix run nixpkgs#nixos-rebuild -- build --flake .#ionia --verbose
-        env:
-          HOSTNAME: ionia # replace with your actual hostname key
+        run: |
+          FLAKEREF="${{ matrix.config-type.path }}"
+          FLAKEREF="${FLAKEREF/\{host\}/${{ matrix.host }}}"
+          nix build ${FLAKEREF} -L
+
       - name: Info
         run: nix path-info -Sh ./result
       # Optional: Build dev shell to ensure it works
       - name: Build devShell
         run: nix develop --command true
+
+      - name: sbomnix
+        run: |
+          name="${{ matrix.host }}-${{ matrix.config-type.type }}"
+          nix run github:tiiuae/sbomnix#sbomnix -- \
+            --csv "${name}.sbom.csv" \
+            --cdx "${name}.sbom.cdx.json" \
+            --spdx "${name}.sbom.spdx.json" \
+            ./result
+      - name: vulnxscan
+        run: |
+          name="${{ matrix.host }}-${{ matrix.config-type.type }}"
+          nix run github:tiiuae/sbomnix#vulnxscan -- \
+            --triage \
+            --sbom "${name}.sbom.cdx.json"
+          if [ -e vulns.triage.csv ]; then
+            grep -v -E "not_vulnerable|fix_not_available" vulns.triage.csv > cve.csv
+            if [ $(wc -l < cve.csv) -gt 1 ]; then
+              nix run github:nixos/nixpkgs#csv2md -- --columns "0-7,9" cve.csv | tee "${name}.vulnxscan.md"
+              echo "### Vulnerability Scan Results for ${{ matrix.host }}-${{ matrix.config-type.type }}" >> $GITHUB_STEP_SUMMARY
+              echo "" >> $GITHUB_STEP_SUMMARY
+              cat "${name}.vulnxscan.md" >> $GITHUB_STEP_SUMMARY
+              echo "" >> $GITHUB_STEP_SUMMARY
+            fi
+          fi
