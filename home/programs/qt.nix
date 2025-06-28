@@ -15,7 +15,7 @@
   qtctConf = {
     Appearance = {
       custom_palette = false;
-      icon_theme = config.gtk.iconTheme.name;
+      icon_theme = "catppuccin-mocha";
       standard_dialogs = "xdgdesktopportal";
       style = "kvantum";
     };
@@ -25,7 +25,8 @@
 in {
   qt = {
     enable = true;
-    platformTheme.name = lib.mkDefault "qtct";
+    platformTheme.name = lib.mkDefault "kvantum";
+    style.name = "kvantum";
   };
 
   home.packages = [

@@ -60,6 +60,8 @@
 
     anyrun.url = "github:fufexan/anyrun/launch-prefix";
 
+    catppuccin.url = "github:catppuccin/nix";
+
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     disko = {

@@ -23,16 +23,16 @@
 
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 
-    iconTheme = {
-      name = lib.mkDefault "Adwaita";
-      package = lib.mkDefault pkgs.adwaita-icon-theme;
-    };
+    # iconTheme = {
+    #   name = lib.mkDefault "Adwaita";
+    #   package = lib.mkDefault pkgs.adwaita-icon-theme;
+    # };
 
-    theme = {
-      name = "adw-gtk3-dark";
-      package = pkgs.adw-gtk3;
-    };
+    # theme = {
+    #   name = "adw-gtk3-dark";
+    #   package = pkgs.adw-gtk3;
+    # };
   };
 
-  xdg.configFile."gtk-4.0/gtk.css".enable = lib.mkForce false;
+  xdg.configFile."gtk-4.0/gtk.css".enable = lib.mkForce true;
 }
