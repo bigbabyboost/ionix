@@ -118,6 +118,11 @@
       };
     };
 
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";

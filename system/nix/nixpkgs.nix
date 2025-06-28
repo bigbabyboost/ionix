@@ -53,6 +53,7 @@
       # External overlays
       inputs.niri.overlays.niri
       inputs.nix-yazi-flavors.overlay
+      inputs.lix-module.overlays.default
     ];
   };
 }

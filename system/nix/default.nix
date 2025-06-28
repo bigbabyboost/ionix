@@ -9,6 +9,7 @@
     ./nh.nix
     ./nixpkgs.nix
     ./substituters.nix
+    inputs.lix-module.nixosModules.default
   ];
 
   # we need git for flakes
