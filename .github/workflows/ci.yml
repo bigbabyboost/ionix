@@ -19,7 +19,7 @@ jobs:
           hatchet-protocol: "rampage"
           root-safe-haven: "55296"
           mnt-safe-haven: "2048"
-          witness-carnage: true
+          witness-carnage: false
       - uses: DeterminateSystems/determinate-nix-action@main
         with:
           github-token: ${{ secrets.GH_TOKEN }}
