@@ -12,7 +12,7 @@
 
       # gruvbox-plus = pkgs.callPackage ./gruvbox {};
 
-      aporetic-nerd-patch = pkgs.callPackage ./aporetic-nerd {};
+      # aporetic-nerd-patch = pkgs.callPackage ./aporetic-nerd {};
     };
   };
 }

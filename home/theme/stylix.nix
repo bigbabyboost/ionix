@@ -5,7 +5,7 @@
   lib,
   ...
 }: let
-  aporetic-nerd = inputs.self.packages.${pkgs.system}.aporetic-nerd-patch;
+  aporetic-nerd = inputs.aporetic-nerd-patch.packages.${pkgs.system}.default;
 in {
   imports = [inputs.stylix.homeModules.stylix];
 
