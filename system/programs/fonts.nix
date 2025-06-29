@@ -25,9 +25,9 @@
 
     # user defined fonts
     fontconfig.defaultFonts = {
-      serif = ["Aporetic Serif"];
-      sansSerif = ["Aporetic Sans"];
-      monospace = ["Aporetic Mono"];
+      serif = ["AporeticSerif Nerd Font Propo"];
+      sansSerif = ["AporeticSans Nerd Font Propo"];
+      monospace = ["AporeticSerifMono Nerd Font Propo"];
       emoji = ["Noto Color Emoji"];
     };
   };

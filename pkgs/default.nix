@@ -6,13 +6,13 @@
       # instant repl with automatic flake loading
       repl = pkgs.callPackage ./repl {};
 
-      #      firefox = pkgs.callPackage ./ff {};
-
       bibata-hyprcursor = pkgs.callPackage ./bibata-hyprcursor {};
 
       wl-ocr = pkgs.callPackage ./wl-ocr {};
 
-      gruvbox-plus = pkgs.callPackage ./gruvbox {};
+      # gruvbox-plus = pkgs.callPackage ./gruvbox {};
+
+      aporetic-nerd-patch = pkgs.callPackage ./aporetic-nerd {};
     };
   };
 }

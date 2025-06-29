@@ -4,8 +4,11 @@
   inputs,
   lib,
   ...
-}: {
+}: let
+  aporetic-nerd = inputs.self.packages.${pkgs.system}.aporetic-nerd-patch;
+in {
   imports = [inputs.stylix.homeModules.stylix];
+
   # Stylix
   stylix = {
     enable = true;
@@ -34,7 +37,7 @@
 
     iconTheme = {
       enable = true;
-      package = inputs.self.packages.${pkgs.system}.gruvbox-plus;
+      package = pkgs.gruvbox-plus-icons;
       dark = "Gruvbox-Plus-Dark";
       light = "Gruvbox-Plus-Light";
     };
@@ -44,16 +47,16 @@
       sizes.terminal = lib.mkDefault 11;
       sizes.desktop = lib.mkDefault 10;
       serif = {
-        package = pkgs.aporetic;
-        name = lib.mkDefault "Aporetic Serif";
+        package = aporetic-nerd;
+        name = lib.mkDefault "AporeticSerif Nerd Font Propo";
       };
       sansSerif = {
-        package = lib.mkDefault pkgs.aporetic;
-        name = lib.mkDefault "Aporetic Sans";
+        package = lib.mkDefault aporetic-nerd;
+        name = lib.mkDefault "AporeticSans Nerd Font Propo";
       };
       monospace = {
-        package = lib.mkDefault pkgs.aporetic;
-        name = lib.mkDefault "Aporetic Sans Mono";
+        package = aporetic-nerd;
+        name = "AporeticSerifMono Nerd Font Propo";
       };
       emoji = {
         package = lib.mkDefault pkgs.noto-fonts-emoji;

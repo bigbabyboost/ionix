@@ -8,7 +8,6 @@
 
     settings = {
       main = {
-        font = lib.mkDefault "Apoteric Sans Mono=10";
         horizontal-letter-offset = 0;
         vertical-letter-offset = 0;
         pad = "4x4 center";
