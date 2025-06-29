@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: let
   pointer = config.home.pointerCursor;
@@ -73,8 +74,8 @@ in {
         border = {
           enable = true;
           width = 2;
-          active.color = "#ffff";
-          inactive.color = "#0000";
+          active.color = "#${config.lib.stylix.colors.base0D}";
+          inactive.color = "#${config.lib.stylix.colors.base03}";
         };
 
         preset-column-widths = [

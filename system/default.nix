@@ -18,6 +18,7 @@ let
     # ./services/swayosd.nix
     ./services/warp.nix
     ./specialisations.nix
+    ./theme/stylix.nix
   ];
 
   laptop =

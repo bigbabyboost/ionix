@@ -30,8 +30,8 @@ in {
       gaps_in = 4;
       gaps_out = 8;
       border_size = 1;
-      "col.active_border" = "rgba(88888888)";
-      "col.inactive_border" = "rgba(00000088)";
+      "col.active_border" = "rgb(${config.lib.stylix.colors.base0D})";
+      "col.inactive_border" = "rgb(${config.lib.stylix.colors.base03})";
 
       allow_tearing = true;
       resize_on_border = true;
