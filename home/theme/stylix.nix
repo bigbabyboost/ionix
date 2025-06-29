@@ -56,7 +56,7 @@ in {
       };
       monospace = {
         package = aporetic-nerd;
-        name = "AporeticSerifMono Nerd Font Propo";
+        name = "AporeticSerifMono Nerd Font";
       };
       emoji = {
         package = lib.mkDefault pkgs.noto-fonts-emoji;
