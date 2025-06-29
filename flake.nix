@@ -60,7 +60,7 @@
 
     anyrun.url = "github:fufexan/anyrun/launch-prefix";
 
-    aporetic-nerd-patch.url = "github:bigbabyboost/aporetic-nerd-patch";
+    aporetic-nerd-patch.url = "github:xaolanx/aporetic-nerd-patch";
 
     catppuccin.url = "github:catppuccin/nix";
 

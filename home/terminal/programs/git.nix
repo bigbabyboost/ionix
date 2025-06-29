@@ -101,7 +101,7 @@ in {
     };
 
     userEmail = "ah0199004@gmail.com";
-    userName = "bigbabyboost";
+    userName = "xaolan";
   };
 
   xdg.configFile."git/allowed_signers".text = ''
