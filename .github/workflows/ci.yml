@@ -5,9 +5,12 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * 0" # weekly on Sunday
-    - cron: "0 0 25 * *" # monthly on the 25th
+  workflow_run:
+    workflows:
+      - Monthly Flake Lock Updater
+      - Weekly Flake Lock Updater
+    types:
+      - completed
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -15,7 +18,8 @@ concurrency:
 
 jobs:
   build:
-    name: ❄
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    name: ❄️  NixOS
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -49,46 +53,9 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
           skipPush: ${{ github.ref != 'refs/heads/master' || github.event_name != 'push' }}
 
-      # Monthly flake.lock update
-      - name: Update flake.lock (Monthly)
-        if: ${{ github.event_name == 'schedule' && github.event.schedule == '0 0 25 * *' }}
-        uses: DeterminateSystems/update-flake-lock@v25
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-          branch: monthly-lock
-          git-author-name: "bigbabyboost"
-          git-author-email: "ah0199004@gmail.com"
-          git-committer-name: "bigbabyboost"
-          git-committer-email: "ah0199004@gmail.com"
-          commit-msg: "chore(lockfile): update flake.lock"
-          pr-title: "chore(lockfile): update flake.lock"
-          pr-labels: |
-            dependencies
-            automated
-            monthly
-
-      # Weekly flake.lock update
-      - name: Update flake.lock (Weekly)
-        if: ${{ github.event_name == 'schedule' && github.event.schedule == '0 0 * * 0' }}
-        uses: DeterminateSystems/update-flake-lock@v25
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-          branch: weekly-lock
-          git-author-name: "bigbabyboost"
-          git-author-email: "ah0199004@gmail.com"
-          git-committer-name: "bigbabyboost"
-          git-committer-email: "ah0199004@gmail.com"
-          commit-msg: "chore(lockfile): update flake.lock"
-          pr-title: "chore(lockfile): update flake.lock"
-          pr-labels: |
-            dependencies
-            automated
-            weekly
-
       # Show flake outputs
       - run: nix flake show
 
-      # Optional: Build something from your flake like a devShell or system config
       - name: Build NixOS configuration
         run: |
           FLAKEREF="${{ matrix.config-type.path }}"

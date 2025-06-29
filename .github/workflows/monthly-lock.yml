@@ -1,0 +1,38 @@
+name: Monthly Flake Lock Updater
+
+on:
+  schedule:
+    - cron: "0 0 25 * *"
+  workflow_dispatch:
+
+jobs:
+  update-lockfile:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: wimpysworld/nothing-but-nix@main
+        with:
+          hatchet-protocol: "holster"
+      - uses: DeterminateSystems/determinate-nix-action@main
+        with:
+          extra-conf: |
+            lazy-trees = true
+      - uses: DeterminateSystems/flakehub-cache-action@main
+      - uses: DeterminateSystems/update-flake-lock@main
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          branch: monthly-lock
+          git-author-name: "xaolan"
+          git-author-email: "ah0199004@gmail.com"
+          git-committer-name: "xaolan"
+          git-committer-email: "ah0199004@gmail.com"
+          commit-msg: "chore(lockfile): update flake.lock"
+          pr-title: "chore(lockfile): update flake.lock"
+          pr-labels: |
+            dependencies
+            automated
+            monthly
