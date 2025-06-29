@@ -15,13 +15,13 @@
   qtctConf = {
     Appearance = {
       custom_palette = false;
-      icon_theme = "catppuccin-mocha";
+      icon_theme = config.stylix.iconTheme.dark;
       standard_dialogs = "xdgdesktopportal";
       style = "kvantum";
     };
   };
 
-  defaultFont = "${config.gtk.font.name},${builtins.toString config.gtk.font.size}";
+  defaultFont = "${config.stylix.fonts.sansSerif.name},${builtins.toString config.stylix.fonts.sizes.applications}";
 in {
   qt = {
     enable = true;

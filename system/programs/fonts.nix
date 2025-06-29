@@ -25,9 +25,9 @@
 
     # user defined fonts
     fontconfig.defaultFonts = {
-      serif = ["Libertinus Serif"];
-      sansSerif = ["Inter"];
-      monospace = ["JetBrains Mono Nerd Font"];
+      serif = ["Aporetic Serif"];
+      sansSerif = ["Aporetic Sans"];
+      monospace = ["Aporetic Mono"];
       emoji = ["Noto Color Emoji"];
     };
   };

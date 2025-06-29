@@ -21,6 +21,7 @@
 
     gnome-calculator
     gnome-control-center
+    nautilus
 
     overskride
     resources

@@ -16,9 +16,9 @@
 
       function scheme_for_appearance(appearance)
         if appearance:find 'Dark' then
-          return 'Catppuccin Mocha'
+          return 'Kanagawa'
         else
-          return 'Catppuccin Latte'
+          return 'Gruvbox light, soft (base16)'
         end
       end
 
@@ -27,7 +27,7 @@
         color_scheme = scheme_for_appearance(get_appearance()),
         default_cursor_style = 'SteadyBar',
         enable_scroll_bar = false,
-        font_size = 10,
+        font_size = 11,
         hide_tab_bar_if_only_one_tab = true,
         scrollback_lines = 10000,
         window_background_opacity = 0.9,

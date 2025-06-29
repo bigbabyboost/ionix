@@ -11,6 +11,8 @@
       bibata-hyprcursor = pkgs.callPackage ./bibata-hyprcursor {};
 
       wl-ocr = pkgs.callPackage ./wl-ocr {};
+
+      gruvbox-plus = pkgs.callPackage ./gruvbox {};
     };
   };
 }
