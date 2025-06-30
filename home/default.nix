@@ -6,7 +6,7 @@
   imports = [
     ./specialisations.nix
     ./terminal
-    ./theme/stylix.nix
+    # ./theme/stylix.nix
     inputs.nix-index-db.hmModules.nix-index
     inputs.tailray.homeManagerModules.default
     self.nixosModules.theme

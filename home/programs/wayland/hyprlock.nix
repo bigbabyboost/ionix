@@ -8,24 +8,24 @@
   programs.hyprlock = {
     enable = true;
     settings = {
-      general = {
+      general = lib.mkForce {
         disable_loading_bar = true;
         immediate_render = true;
         hide_cursor = false;
         no_fade_in = true;
       };
 
-      background = [
+      background = lib.mkForce [
         {
           monitor = "";
-          path = config.theme.wallpaper;
+          path = lib.mkDefault config.theme.wallpaper;
           blur_passes = 3;
           blur_size = 10;
           brightness = 0.8;
         }
       ];
 
-      input-field = [
+      input-field = lib.mkForce [
         {
           monitor = "eDP-1";
 
@@ -54,7 +54,7 @@
         }
       ];
 
-      label = [
+      label = lib.mkForce [
         {
           monitor = "";
           text = "$TIME";
