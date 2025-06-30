@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  inputs,
   ...
 }: {
   # home.pointerCursor = {
@@ -24,8 +25,8 @@
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 
     iconTheme = lib.mkDefault {
-      name = "Gruvbox-Plus-Dark";
-      package = pkgs.gruvbox-plus-icons;
+      name = "Colloid-Purple-Rosepine-Dark";
+      package = inputs.colloid-icon.packages.${pkgs.system}.rosepinepurple;
     };
 
     # theme = {

@@ -14,7 +14,7 @@ in {
     enable = true;
     autoEnable = true;
     image = config.theme.wallpaper;
-    base16Scheme = ./gruvbox-material-soft-dark.yaml;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
     polarity = "dark";
 
