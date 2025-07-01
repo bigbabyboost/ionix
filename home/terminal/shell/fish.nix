@@ -5,10 +5,14 @@
   ...
 }: let
   isFishEnabled = config.programs.fish.enable;
+  fnDir = ./functions;
 in {
   programs.fish = {
     enable = true;
     package = pkgs.fish;
+    functions = {
+      fzf-rosepine = lib.fileContents (fnDir + "/fzf_rosepine.fish");
+    };
 
     binds = {
       "alt-shift-b".command = "fish_commandline_append bat";
@@ -34,12 +38,8 @@ in {
         src = pkgs.fishPlugins.humantime-fish.src;
       }
       {
-        name = "fzf-fish";
-        src = pkgs.fishPlugins.fzf-fish.src;
-      }
-      {
-        name = "fifc";
-        src = pkgs.fishPlugins.fifc.src;
+        name = "fzf";
+        src = pkgs.fishPlugins.fzf.src;
       }
       {
         name = "fish-bd";
