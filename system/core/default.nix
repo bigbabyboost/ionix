@@ -5,6 +5,7 @@
     ./security.nix
     ./users.nix
     ../nix
+    ../programs/fish.nix
     ../programs/zsh.nix
   ];
 

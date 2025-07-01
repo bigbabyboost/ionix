@@ -6,7 +6,8 @@ in {
   imports = [
     ./programs
     ./shell/starship.nix
-    ./shell/zsh.nix
+    ./shell/fish.nix
+    # ./shell/zsh.nix
     ./shell/zoxide.nix
   ];
 

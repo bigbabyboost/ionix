@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   users.users.xaolan = {
     isNormalUser = true;
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     extraGroups = [
       "input"
       "libvirtd"

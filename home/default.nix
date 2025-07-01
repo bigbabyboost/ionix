@@ -17,6 +17,7 @@
     homeDirectory = "/home/xaolan";
     stateVersion = "23.11";
     extraOutputsToInstall = ["doc" "devdoc"];
+    shell.enableFishIntegration = true;
   };
 
   # disable manuals as nmd fails to build often
