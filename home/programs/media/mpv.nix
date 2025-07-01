@@ -6,7 +6,7 @@
       mpris
       sponsorblock
       thumbnail
-      modernz
+      # modernz
       smartskip
       youtube-chat
       quality-menu
@@ -14,6 +14,7 @@
       # autosubsync-mpv
       autoload
       smart-copy-paste-2      
+      uosc
     ];
     config = {
       osc = "no";
@@ -22,6 +23,7 @@
       osd-font = "AporeticSans Nerd Font Propo";
       osd-font-size = 30;
       osd-outline-size = 2;
+      border = "no";
 
       save-position-on-quit = "yes";
       watch-later-options = "start, sid";
