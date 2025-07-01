@@ -5,7 +5,7 @@
 }: let
   browser = ["zen"];
   imageViewer = ["org.gnome.Loupe"];
-  videoPlayer = ["io.github.celluloid_player.Celluloid"];
+  videoPlayer = ["mpv"];
   audioPlayer = ["io.bassi.Amberol"];
 
   xdgAssociations = type: program: list:
