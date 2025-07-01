@@ -17,6 +17,24 @@
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
+  fileSystems."/home/xaolan/Ventoy" = {
+    device = "/dev/disk/by-uuid/2488765988762A06";
+    fsType = "ntfs-3g";
+    options = ["rw" "uid=1000"];
+  };
+
+  fileSystems."/home/xaolan/Data1" = {
+    device = "/dev/disk/by-uuid/1C8A0A998A0A6F96";
+    fsType = "ntfs-3g";
+    options = ["rw" "uid=1000"];
+  };
+
+  fileSystems."/home/xaolan/Data2" = {
+    device = "/dev/disk/by-uuid/ECAA469DAA4663E4";
+    fsType = "ntfs-3g";
+    options = ["rw" "uid=1000"];
+  };
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
