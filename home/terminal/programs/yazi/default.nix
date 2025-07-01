@@ -177,7 +177,7 @@ in {
         ];
         play = [
           {
-            run = "mpv \"$@\"";
+            run = "celluloid \"$@\"";
             orphan = true;
             for = "unix";
           }
