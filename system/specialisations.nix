@@ -1,8 +1,8 @@
 {
   theme = {
     wallpaper = let
-      url = "https://w.wallhaven.cc/full/ex/wallhaven-exgyok.jpg";
-      sha256 = "06653zg1h8fh1wpiqpibcy7npzmscb7ns2p2vpzx9sn4qg7pn64l";
+      url = "https://github.com/rose-pine/wallpapers/blob/main/bay.JPG?raw=true";
+      sha256 = "YLHsj9SKuJNwiYxCQ5zFDrdEfTSEH89ue95yBvQZ+MI=";
       ext = "jpg";
     in
       builtins.fetchurl {
