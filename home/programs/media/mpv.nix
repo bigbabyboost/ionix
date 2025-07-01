@@ -26,7 +26,6 @@
       save-position-on-quit = "yes";
       watch-later-options = "start, sid";
 
-      title = ''${filename}'';
       keep-open = "yes";
       title-bar = "no";
       autofit-larger = "75%x75%";
