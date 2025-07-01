@@ -31,8 +31,8 @@
             ++ [
               (let
                 bg = self.pkgs.fetchurl {
-                  url = "https://w.wallhaven.cc/full/ex/wallhaven-exgyok.jpg";
-                  sha256 = "06653zg1h8fh1wpiqpibcy7npzmscb7ns2p2vpzx9sn4qg7pn64l";
+                  url = "https://raw.githubusercontent.com/rose-pine/wallpapers/main/bay.JPG";
+                  sha256 = "1hpq37s0cwnygdpcy7w46iyl9dqfqnf46hlci5q97f4asj7yrcb0";
                 };
               in
                 self.pkgs.writeText "bg.patch" ''
