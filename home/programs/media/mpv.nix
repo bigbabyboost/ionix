@@ -1,21 +1,26 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   programs.mpv = {
     enable = true;
     defaultProfiles = ["fast"];
     scripts = with pkgs.mpvScripts; [
-      mpris
       sponsorblock
       thumbnail
+      # smartskip
       # modernz
-      smartskip
-      youtube-chat
-      quality-menu
-      youtube-upnext
-      # autosubsync-mpv
+      autosubsync-mpv
       autoload
       smart-copy-paste-2      
       uosc
     ];
+
+    scriptOpts = {
+      autosubsync = {
+      	"ffmpeg_path" = "${lib.getExe pkgs.ffmpeg-full}";
+      	"ffsubsync_path" = "${lib.getExe pkgs.ffsubsync}";
+      	"audio_subsync_tool" = "ask";
+      	"altsub_subsync_tool" = "ask";
+      };
+    };
     config = {
       osc = "no";
       osd-bar = "no";
@@ -30,9 +35,7 @@
 
       keep-open = "yes";
       title-bar = "no";
-      autofit-larger = "75%x75%";
-      autofit-smaller = "640x480";
-
+      
       msg-color = "yes";
       msg-module = "yes";
 
@@ -59,6 +62,7 @@
       dither = "no";
       brightness = 2.0;
       contrast = 1.0;
+      video-sync = "display-resample";
 
       audio-file-auto = "fuzzy";
       volume-max = 150;
@@ -99,20 +103,12 @@
 
       "ctrl+s" = ''playlist-shuffle ; show-text "Shuffled playlist"'';
 
-      "alt+n" = "script-binding autolyrics/netease-download";
-      "alt+m" = "script-binding autolyrics/musixmatch-download";
-      "alt+o" = "script-binding autolyrics/offset-sub";
-
       "ctrl+b" = "script-binding detectdualsubs/key_bind_check_for_dual_subs";
-
-      "ctrl+left" = "script-binding modernx/prevfile";
-      "ctrl+right" = "script-binding modernx/nextfile";
-      "shift+left" = "script-binding modernx/prevchapter";
-      "shift+right" = "script-binding modernx/nextchapter";
       
       "s" = "script-binding screenshotfolder/screenshot_done";
 
       "ctrl+f" = "script-binding selectformat/menu";
+      "ctrl+n" = "script-binding smartskip/add-chapter";
 
       "g" = "script-binding sponsorblock/set_segment";
       "G" = "script-binding sponsorblock/submit_segment";
@@ -133,4 +129,8 @@
       "ctrl+k" = "add sub-delay 0.010";
     };
   };
+  home.packages = with pkgs; [
+  	ffmpeg-full
+  	ffsubsync
+  ];
 }
