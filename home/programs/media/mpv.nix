@@ -129,8 +129,4 @@
       "ctrl+k" = "add sub-delay 0.010";
     };
   };
-  home.packages = with pkgs; [
-  	ffmpeg-full
-  	ffsubsync
-  ];
 }
