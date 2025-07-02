@@ -4,6 +4,7 @@
   imports = [
     ./mpv.nix
     ./rnnoise.nix
+    ./celluloid.nix
   ];
 
   home.packages = with pkgs; [
@@ -18,9 +19,6 @@
 
     # images
     loupe
-
-    # videos
-    celluloid
 
     # torrents
     transmission_4-gtk
