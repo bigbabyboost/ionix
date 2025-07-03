@@ -20,6 +20,7 @@
           enableTreesitter = true;
 
           nix.enable = true;
+          nix.lsp.server = "nixd";
           nix.format = {
           	enable = true;
           	type = "alejandra";
