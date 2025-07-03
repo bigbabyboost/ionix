@@ -1,4 +1,4 @@
-name: "Flake.lock: update Nix dependencies"
+name: "Nightly CI"
 on:
   workflow_dispatch:
   schedule:
@@ -9,15 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: DeterminateSystems/determinate-nix-action@v3
+      - uses: DeterminateSystems/determinate-nix-action@main
       - id: update
         uses: DeterminateSystems/update-flake-lock@main
         with:
-          pr-title: "Update Nix flake inputs"
+          pr-title: "chore(lockfile): update flake.lock"
+          commit-msg: "chore(lockfile): update flake.lock"
           token: ${{ secrets.GH_TOKEN }}
           pr-labels: |
             dependencies
             automated
+            nightly
       - if: steps.update.outputs.pull-request-number
         run: gh pr merge ${{ steps.update.outputs.pull-request-number }} --squash --auto
         env:
