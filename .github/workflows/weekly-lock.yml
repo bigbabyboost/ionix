@@ -27,7 +27,7 @@ jobs:
       - uses: DeterminateSystems/update-flake-lock@main
         with:
           token: ${{ secrets.GH_TOKEN }}
-          branch: monthly-lock
+          branch: weekly-lock
           git-author-name: "xaolanx"
           git-author-email: "ah0199004@gmail.com"
           git-committer-name: "xaolanx"
