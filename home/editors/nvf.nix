@@ -59,7 +59,6 @@
         };
         # enableLuaLoader = true;
         statusline.lualine.enable = true;
-        autocomplete.nvim-cmp.enable = true;
         autocomplete = {
           blink-cmp.enable = true;
           blink-cmp.setupOpts.signature.enabled = true;
