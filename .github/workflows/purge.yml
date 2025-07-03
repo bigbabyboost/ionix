@@ -1,0 +1,20 @@
+name: Purge Cachix Cache
+
+on:
+  schedule:
+    - cron: "0 3 * * 0" # Weekly (Sunday)
+    - cron: "0 4 1 * *" # Monthly (1st of each month)
+  workflow_dispatch:
+
+jobs:
+  clear-cachix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clear Cachix
+        run: |
+          echo "Clearing Cachix cache"
+          curl -X 'POST' \
+                  'https://app.cachix.org/api/v1/cache/xaolan/clear' \
+                  -H 'accept: application/json;charset=utf-8' \
+                  -H 'Authorization: ${{ secrets.CACHIX_AUTH_TOKEN }} \
+                  -d ''
