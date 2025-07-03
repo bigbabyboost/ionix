@@ -5,11 +5,6 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      - Weekly Flake Lock Updater
-    types:
-      - completed
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
