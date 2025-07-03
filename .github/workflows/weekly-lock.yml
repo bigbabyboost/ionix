@@ -28,9 +28,9 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
           branch: monthly-lock
-          git-author-name: "xaolan"
+          git-author-name: "xaolanx"
           git-author-email: "ah0199004@gmail.com"
-          git-committer-name: "xaolan"
+          git-committer-name: "xaolanx"
           git-committer-email: "ah0199004@gmail.com"
           commit-msg: "chore(lockfile): update flake.lock"
           pr-title: "chore(lockfile): update flake.lock"
