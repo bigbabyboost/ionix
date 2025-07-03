@@ -16,5 +16,5 @@ jobs:
           curl -X 'POST' \
                   'https://app.cachix.org/api/v1/cache/xaolan/clear' \
                   -H 'accept: application/json;charset=utf-8' \
-                  -H 'Authorization: ${{ secrets.CACHIX_AUTH_TOKEN }} \
+                  -H 'Authorization: ${{ secrets.CACHIX_AUTH_TOKEN }}' \
                   -d ''
