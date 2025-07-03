@@ -1,14 +1,12 @@
-name: Weekly Flake Lock Updater
+name: Nightly update
 
 on:
-  workflow_run:
-    workflows: ["Purge Cachix Cache"]
-    types:
-      - completed
+  schedule:
+    - cron: 0 0 * * *
   workflow_dispatch:
 
 jobs:
-  update-lockfile:
+  nightly-update:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -24,13 +22,17 @@ jobs:
           extra-conf: |
             lazy-trees = true
       - uses: DeterminateSystems/flakehub-cache-action@main
+      - id: update
       - uses: DeterminateSystems/update-flake-lock@main
         with:
           token: ${{ secrets.GH_TOKEN }}
-          branch: weekly-lock
           commit-msg: "chore(lockfile): update flake.lock"
           pr-title: "chore(lockfile): update flake.lock"
           pr-labels: |
             dependencies
             automated
-            weekly
+            nightly
+      - if: steps.update.outputs.pull-request-number
+        run: gh pr merge ${{ steps.update.outputs.pull-request-number }} --squash --auto
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
