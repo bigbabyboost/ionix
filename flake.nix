@@ -61,6 +61,11 @@
     anyrun.url = "github:fufexan/anyrun/launch-prefix";
 
     aporetic-nerd-patch.url = "github:xaolanx/aporetic-nerd-patch";
+  
+    betterfox = {
+      url = "github:yokoffing/Betterfox";
+      flake = false;
+    };    
 
     catppuccin.url = "github:catppuccin/nix";
 
@@ -143,6 +148,11 @@
         flake-parts.follows = "flake-parts";
       };
     };
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };    
 
     nvf = {
       url = "github:notashelf/nvf";

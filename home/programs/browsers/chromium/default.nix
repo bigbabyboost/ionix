@@ -35,7 +35,7 @@
 in {
   # Configure Chromium browser
   programs.google-chrome = {
-    enable = true;
+    enable = false;
     commandLineArgs = commonCommandLineArgs;
   };
 

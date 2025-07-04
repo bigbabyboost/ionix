@@ -14,11 +14,11 @@ in {
     enable = true;
     autoEnable = true;
     image = config.theme.wallpaper;
-    base16Scheme = ./gruvbox-material-soft-dark.yaml;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
     polarity = "dark";
 
     iconTheme = {
-      enable = true;
+      enable = false;
       package = pkgs.gruvbox-plus-icons;
       dark = "Gruvbox-Plus-Dark";
       light = "Gruvbox-Plus-Light";
@@ -60,23 +60,15 @@ in {
     };
 
     targets = {
+      floorp.profileNames = [ "xaolan" ];
       gnome-text-editor.enable = lib.mkDefault false;
-      gtk.enable = true;
-      gtk.flatpakSupport.enable = true;
-      bat.enable = true;
-      btop.enable = true;
-      cava.enable = true;
-      foot.enable = true;
-      fzf.enable = true;
-      ghostty.enable = true;
       hyprland.enable = false;
       hyprlock.enable = false;
-      micro.enable = true;
-      qt.enable = true;
-      yazi.enable = true;
       zed.enable = false;
       waybar.enable = false;
       zathura.enable = false;
+      kde.enable = false;
+      gnome.enable = false;
     };
   };
 }

@@ -18,7 +18,7 @@ in {
 
     polarity = "dark";
 
-    homeManagerIntegration.autoImport = true;
+    homeManagerIntegration.autoImport = false;
     homeManagerIntegration.followSystem = true;
 
     fonts = {
