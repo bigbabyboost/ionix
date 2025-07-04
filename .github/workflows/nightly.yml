@@ -5,7 +5,7 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  nix-flake-update:
+  nightly-ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
