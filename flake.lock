@@ -26,11 +26,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1751179827,
-        "narHash": "sha256-DeMoec/GWDsXNEcWUosmufG9uOCb+P+smAch2bEWNsI=",
+        "lastModified": 1751588079,
+        "narHash": "sha256-OvyOwMsOyMo5j9r/4vNl8mGNEFSOzZ0orghMfR8n1zQ=",
         "owner": "xaolanx",
         "repo": "aporetic-nerd-patch",
-        "rev": "c9d101dd03bfbd20f24183c6dd8823b730120a64",
+        "rev": "eaa3ef9ec86abbf6d83205f39a895248b1daae8f",
         "type": "github"
       },
       "original": {
@@ -580,11 +580,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1751580393,
-        "narHash": "sha256-oRipTA4/JGeDGI31GNNVGFx0uhuR7h/R9SvkR4K8Axc=",
+        "lastModified": 1751589297,
+        "narHash": "sha256-3q35cq6BPuwIRL3IoVKYPc72r3OleeuRyf4YAPjEqzA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "402333d5ec2f9eed0f2584555936361f39d2f93e",
+        "rev": "83f978812c37511ef2ffaf75ffa72160483f738a",
         "type": "github"
       },
       "original": {
