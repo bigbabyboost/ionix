@@ -30,5 +30,8 @@
     libsForQt5.qt5.qtgraphicaleffects
     kdePackages.qtbase
     kdePackages.qtdeclarative
+
+    #media
+    youtube-music
   ];
 }
