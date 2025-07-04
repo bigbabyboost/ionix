@@ -2,9 +2,9 @@
   imports = [
     ./anyrun
     ./browsers/chromium
-    #./browsers/firefox
+    ./browsers/firefox
     ./browsers/zen
-    ./browsers/floorp
+    # ./browsers/floorp
     # ./kde
     ./media
     ./gtk.nix
