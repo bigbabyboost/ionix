@@ -57,7 +57,7 @@ in {
             width = 1920;
             height = 1080;
           };
-          scale = 0.85;
+          scale = 1;
           position = {
             x = 0;
             y = 0;
