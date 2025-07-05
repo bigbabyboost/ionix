@@ -30,10 +30,7 @@
             (old.patches or [])
             ++ [
               (let
-                bg = self.pkgs.fetchurl {
-                  url = "https://raw.githubusercontent.com/rose-pine/wallpapers/main/bay.JPG";
-                  sha256 = "1hpq37s0cwnygdpcy7w46iyl9dqfqnf46hlci5q97f4asj7yrcb0";
-                };
+                bg = config.theme.wallpaper;
               in
                 self.pkgs.writeText "bg.patch" ''
                   --- a/data/theme/gnome-shell-sass/widgets/_login-lock.scss
