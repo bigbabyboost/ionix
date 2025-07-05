@@ -12,8 +12,6 @@
 
       fdm = pkgs.callPackage ./fdm {};
 
-      abdm = pkgs.callPackage ./abdm {};
-
       # gruvbox-plus = pkgs.callPackage ./gruvbox {};
 
       # aporetic-nerd-patch = pkgs.callPackage ./aporetic-nerd {};

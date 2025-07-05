@@ -27,7 +27,6 @@
 
     # Download Manager
     inputs.self.packages.${pkgs.system}.fdm
-    inputs.self.packages.${pkgs.system}.abdm
 
     overskride
     resources
