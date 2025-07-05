@@ -1,9 +1,4 @@
-{
-  self,
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./anyrun
     ./browsers/chromium
@@ -24,10 +19,6 @@
     gnome-calculator
     gnome-control-center
     nautilus
-
-    # Download Manager
-    inputs.self.packages.${pkgs.system}.fdm
-    inputs.self.packages.${pkgs.system}.abdm
 
     overskride
     resources
