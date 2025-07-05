@@ -4,7 +4,6 @@
   lib,
   ...
 }: let
-  pointer = config.home.pointerCursor;
   makeCommand = command: {
     command = [command];
   };

@@ -1,6 +1,9 @@
-{ pkgs, config, lib, ... }:
-
-let
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
   pluginsPkgs = {
     autoload = pkgs.mpvScripts.autoload;
     sponsorblock = pkgs.mpvScripts.sponsorblock;
@@ -8,10 +11,12 @@ let
     smart-copy-paste-2 = pkgs.mpvScripts.smart-copy-paste-2;
   };
 
-  plugins = lib.mapAttrs' (name: pkg: {
-    name = "${config.xdg.configHome}/celluloid/scripts/${name}.lua";
-    value.source = "${pkg}/share/mpv/scripts/${name}.lua";
-  }) pluginsPkgs;
+  plugins =
+    lib.mapAttrs' (name: pkg: {
+      name = "${config.xdg.configHome}/celluloid/scripts/${name}.lua";
+      value.source = "${pkg}/share/mpv/scripts/${name}.lua";
+    })
+    pluginsPkgs;
 
   subsync = {
     "${config.xdg.configHome}/celluloid/scripts/autosubsync" = {
@@ -21,9 +26,8 @@ let
       source = "${pkgs.mpvScripts.sponsorblock}/share/mpv/scripts/sponsorblock_shared";
     };
   };
-in
-{
-  home.packages = [ pkgs.celluloid ];
+in {
+  home.packages = [pkgs.celluloid];
 
   dconf.settings = {
     "io/github/celluloid-player/celluloid" = {

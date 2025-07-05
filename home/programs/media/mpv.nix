@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.mpv = {
     enable = true;
     defaultProfiles = ["fast"];
@@ -9,16 +13,16 @@
       # modernz
       autosubsync-mpv
       autoload
-      smart-copy-paste-2      
+      smart-copy-paste-2
       uosc
     ];
 
     scriptOpts = {
       autosubsync = {
-      	"ffmpeg_path" = "${lib.getExe pkgs.ffmpeg-full}";
-      	"ffsubsync_path" = "${lib.getExe pkgs.ffsubsync}";
-      	"audio_subsync_tool" = "ask";
-      	"altsub_subsync_tool" = "ask";
+        "ffmpeg_path" = "${lib.getExe pkgs.ffmpeg-full}";
+        "ffsubsync_path" = "${lib.getExe pkgs.ffsubsync}";
+        "audio_subsync_tool" = "ask";
+        "altsub_subsync_tool" = "ask";
       };
     };
     config = {
@@ -35,7 +39,7 @@
 
       keep-open = "yes";
       title-bar = "no";
-      
+
       msg-color = "yes";
       msg-module = "yes";
 
@@ -104,7 +108,7 @@
       "ctrl+s" = ''playlist-shuffle ; show-text "Shuffled playlist"'';
 
       "ctrl+b" = "script-binding detectdualsubs/key_bind_check_for_dual_subs";
-      
+
       "s" = "script-binding screenshotfolder/screenshot_done";
 
       "ctrl+f" = "script-binding selectformat/menu";

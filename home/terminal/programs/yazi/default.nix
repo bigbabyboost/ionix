@@ -1,17 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  userSettings,
-  ...
-}: let
-  yazi-plugins = pkgs.fetchFromGitHub {
-    owner = "yazi-rs";
-    repo = "plugins";
-    rev = "main";
-    hash = "sha256-mzW/ut/LTEriZiWF8YMRXG9hZ70OOC0irl5xObTNO40=";
-  };
-in {
+{pkgs, ...}: {
   imports = [
     #   ./theme/filetype.nix
     #   ./theme/icons.nix

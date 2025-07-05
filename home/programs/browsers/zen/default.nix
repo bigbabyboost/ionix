@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   inputs,
   ...
@@ -16,7 +15,7 @@
         search = {
           force = true;
           order = [
-            "google"          
+            "google"
             "Searx"
             "NixOS Packages"
             "NixOS Options"

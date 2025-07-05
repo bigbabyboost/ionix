@@ -6,10 +6,6 @@
 }: {
   # greetd display manager
   services.greetd = let
-    session = {
-      command = "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop";
-      user = "xaolan";
-    };
     session-niri = {
       command = "${lib.getExe config.programs.uwsm.package} start ${pkgs.niri}/share/wayland-sessions/niri.desktop";
       user = "xaolan";

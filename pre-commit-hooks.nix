@@ -6,6 +6,7 @@
 
     settings.hooks = {
       alejandra.enable = true;
+      deadnix.enable = true;
       prettier = {
         enable = true;
         excludes = [".js" ".md" ".ts"];

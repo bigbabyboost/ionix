@@ -15,7 +15,7 @@
 
     overlays = [
       # Your custom lib.colors overlay
-      (final: prev: {
+      (_final: prev: {
         lib =
           prev.lib
           // {
@@ -53,7 +53,7 @@
       # External overlays
       inputs.niri.overlays.niri
       inputs.nix-yazi-flavors.overlay
-      inputs.nur.overlays.default 
+      inputs.nur.overlays.default
     ];
   };
 }

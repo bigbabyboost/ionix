@@ -60,8 +60,8 @@ in {
     };
 
     targets = {
-      floorp.profileNames = [ "xaolan" ];
-      firefox.profileNames = [ "xaolan" ];      
+      floorp.profileNames = ["xaolan"];
+      firefox.profileNames = ["xaolan"];
       gnome-text-editor.enable = lib.mkDefault false;
       hyprland.enable = false;
       hyprlock.enable = false;
